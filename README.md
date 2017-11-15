@@ -1,6 +1,9 @@
 # my-project
 
 > A Vue.js quick start project
+> emmm……你会发现本教程从学习Vue变成了学习 vue-cli Vue-loader + vue-router + vuex
+
+`That's really emmm...`
 
 ## Build Setup
 
