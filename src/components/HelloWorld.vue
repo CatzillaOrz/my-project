@@ -6,11 +6,9 @@
 </template>
 
 <script>
-  
-  
   export default {
     name: 'HelloWorld',
-    data() {
+    data () {
       return {
         msg: '欢迎来到Vue教学，使用npm run dev 启动你的项目！'
       }
