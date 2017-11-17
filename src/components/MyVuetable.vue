@@ -4,7 +4,7 @@
       <vuetable-pagination-info ref="paginationInfoTop"></vuetable-pagination-info>
       <vuetable-pagination ref="paginationTop" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
     </div>
-    <vuetable ref="vuetable" api-url="https://vuetable.ratiw.net/api/users" :fields="fields" pagination-path="" @vuetable:pagination-data="onPaginationData"></vuetable>
+    <vuetable ref="vuetable" :sort-order="sortOrder" api-url="https://vuetable.ratiw.net/api/users" :fields="fields" pagination-path="" :muti-sort="true" multi-sort-key="ctrl" @vuetable:pagination-data="onPaginationData"></vuetable>
     <div class="vuetable-pagination ui basic segment grid">
       <vuetable-pagination-info ref="paginationInfo"></vuetable-pagination-info>
       <vuetable-pagination ref="pagination" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
@@ -29,6 +29,15 @@
     },
     data() {
       return {
+        sortOrder: [{
+          field: 'email',
+          sortField: 'email',
+          direction: 'asc'
+        }],
+        css: {
+          ascendingIcon: 'glyphicon glyphicon-chevron-up',
+          descendingIcon: 'glyphicon glyphicon-chevron-down'
+        },
         fields: [{
             name: 'name',
             sortField: 'name'
