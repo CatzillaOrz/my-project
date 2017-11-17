@@ -1,13 +1,21 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
+    <div class="ui container">
+      <my-vuetable></my-vuetable>
+    </div>
+    <!-- <router-view/> -->
   </div>
 </template>
 
 <script>
+import MyVuetable from './components/MyVuetable'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    MyVuetable
+  }
 }
 </script>
 
