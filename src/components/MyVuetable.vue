@@ -4,7 +4,25 @@
       <vuetable-pagination-info ref="paginationInfoTop"></vuetable-pagination-info>
       <vuetable-pagination ref="paginationTop" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
     </div>
-    <vuetable ref="vuetable" :sort-order="sortOrder" api-url="https://vuetable.ratiw.net/api/users" :fields="fields" pagination-path="" :muti-sort="true" multi-sort-key="ctrl" @vuetable:pagination-data="onPaginationData"></vuetable>
+    <vuetable ref="vuetable" :sort-order="sortOrder" api-url="https://vuetable.ratiw.net/api/users" :fields="fields" pagination-path="" :muti-sort="true" multi-sort-key="ctrl" @vuetable:pagination-data="onPaginationData">
+      <template slot="actions" scope="props">
+          <div class="custom-actions">
+            <button class="ui basic button"
+              @click="onAction('view-item', props.rowData, props.rowIndex)">
+              <i class="zoom icon"></i>
+            </button>
+            <button class="ui basic button"
+              @click="onAction('edit-item', props.rowData, props.rowIndex)">
+              <i class="edit icon"></i>
+            </button>
+            <button class="ui basic button"
+              @click="onAction('delete-item', props.rowData, props.rowIndex)">
+              <i class="delete icon"></i>
+            </button>
+          </div>
+</template>
+  </vuetable>
+    </vuetable>
     <div class="vuetable-pagination ui basic segment grid">
       <vuetable-pagination-info ref="paginationInfo"></vuetable-pagination-info>
       <vuetable-pagination ref="pagination" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
@@ -78,7 +96,7 @@
           },
           //.. https://github.com/ratiw/vuetable-2-tutorial/wiki/lesson-11#__componentname
           {
-            name: '__component:custom-actions', // <----
+            name: '__slot:actions', // <----
             title: 'Actions',
             titleClass: 'center aligned',
             dataClass: 'center aligned'
@@ -110,6 +128,10 @@
       },
       onChangePage(page) {
         this.$refs.vuetable.changePage(page)
+      },
+      //...https://github.com/ratiw/vuetable-2-tutorial/wiki/lesson-11#__slotname--v120
+      onAction(action, data, index) {
+        console.log('slot) action: ' + action, data.name, index)
       }
     }
   };
