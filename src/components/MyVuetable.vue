@@ -38,6 +38,11 @@
             sortField: 'email'
           },
           {
+            name: 'age',
+            sortField: 'birthdate', // <----
+            dataClass: 'center aligned'
+          },
+          {
             name: "birthdate",
             titleClass: "center aligned",
             dataClass: "center aligned",
