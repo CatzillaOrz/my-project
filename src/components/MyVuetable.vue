@@ -1,5 +1,9 @@
 <template>
   <div class="ui container">
+    <div class="vuetable-pagination ui basic segment grid">
+      <vuetable-pagination-info ref="paginationInfoTop"></vuetable-pagination-info>
+      <vuetable-pagination ref="paginationTop" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
+    </div>
     <vuetable ref="vuetable" api-url="https://vuetable.ratiw.net/api/users" :fields="fields" pagination-path="" @vuetable:pagination-data="onPaginationData"></vuetable>
     <div class="vuetable-pagination ui basic segment grid">
       <vuetable-pagination-info ref="paginationInfo"></vuetable-pagination-info>
@@ -15,7 +19,7 @@
   // import VuetablePagination from 'vuetable-2/src/components/VuetablePaginationDropdown'
   import VuetablePagination from "vuetable-2/src/components/VuetablePagination";
   import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
-
+  
   
   export default {
     components: {
@@ -69,6 +73,9 @@
         return value == null ? "" : moment(value, "YYYY-MM-DD").format(fmt);
       },
       onPaginationData(paginationData) {
+        this.$refs.paginationTop.setPaginationData(paginationData)      // <----
+        this.$refs.paginationInfoTop.setPaginationData(paginationData)  // <----
+
         this.$refs.pagination.setPaginationData(paginationData)
         this.$refs.paginationInfo.setPaginationData(paginationData)
       },
