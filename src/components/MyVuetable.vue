@@ -29,9 +29,14 @@
     },
     data() {
       return {
-        fields: [
-          "name",
-          "email",
+        fields: [{
+            name: 'name',
+            sortField: 'name'
+          },
+          {
+            name: 'email',
+            sortField: 'email'
+          },
           {
             name: "birthdate",
             titleClass: "center aligned",
@@ -73,9 +78,9 @@
         return value == null ? "" : moment(value, "YYYY-MM-DD").format(fmt);
       },
       onPaginationData(paginationData) {
-        this.$refs.paginationTop.setPaginationData(paginationData)      // <----
-        this.$refs.paginationInfoTop.setPaginationData(paginationData)  // <----
-
+        this.$refs.paginationTop.setPaginationData(paginationData) // <----
+        this.$refs.paginationInfoTop.setPaginationData(paginationData) // <----
+  
         this.$refs.pagination.setPaginationData(paginationData)
         this.$refs.paginationInfo.setPaginationData(paginationData)
       },
