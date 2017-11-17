@@ -19,7 +19,10 @@
   // import VuetablePagination from 'vuetable-2/src/components/VuetablePaginationDropdown'
   import VuetablePagination from "vuetable-2/src/components/VuetablePagination";
   import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
+  import Vue from 'vue'
+  import CustomActions from './CustomActions'
   
+  Vue.component('custom-actions', CustomActions)
   
   export default {
     components: {
@@ -72,6 +75,13 @@
             titleClass: "center aligned",
             dataClass: "right aligned",
             callback: "formatNumber"
+          },
+          //.. https://github.com/ratiw/vuetable-2-tutorial/wiki/lesson-11#__componentname
+          {
+            name: '__component:custom-actions', // <----
+            title: 'Actions',
+            titleClass: 'center aligned',
+            dataClass: 'center aligned'
           }
         ]
       };
