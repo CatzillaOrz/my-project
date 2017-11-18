@@ -17,7 +17,7 @@ export default [
   },
   {
     name: 'name',
-    sortField: 'name',
+    sortField: 'name'
   },
   {
     name: 'email',
@@ -53,6 +53,6 @@ export default [
     name: '__slot:actions',
     title: 'Slot Actions',
     titleClass: 'center aligned',
-    dataClass: 'center aligned',
+    dataClass: 'center aligned'
   }
 ]
