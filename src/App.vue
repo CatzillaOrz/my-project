@@ -9,7 +9,7 @@
       :append-params="moreParams"
       detail-row-component="my-detail-row"
     >
-      <template slot="actions" scope="props">
+      <template slot="actions" slot-scope="props">
         <div class="custom-actions">
           <button class="ui basic button"
             @click="onAction('view-item', props.rowData, props.rowIndex)">

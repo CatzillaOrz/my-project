@@ -9,13 +9,16 @@ import VuetablePaginationInfo from "vuetable-2/src/components/VuetablePagination
 import CustomActions from "./CustomActions";
 import FilterBar from "./FilterBar";
 import CssConfig from "./VuetableCssConfig.js";
+import VuetablePaginationBootstrap from "./VuetablePaginationBootstrap";
+
 Vue.use(VueEvents);
 Vue.component("custom-actions", CustomActions);
 Vue.component("filter-bar", FilterBar);
 export default {
   components: {
     Vuetable,
-    VuetablePagination,
+    // VuetablePagination,
+    VuetablePaginationBootstrap,
     VuetablePaginationInfo
   },
   props: {
@@ -90,9 +93,10 @@ export default {
           ref: "paginationInfo",
           props: { css: this.css.paginationInfo }
         }),
-        h("vuetable-pagination", {
+        h("vuetable-pagination-bootstrap", {
           ref: "pagination",
-          props: { css: this.css.pagination },
+          class: { "pull-right": true },
+          props: {},
           on: {
             "vuetable-pagination:change-page": this.onChangePage
           }
