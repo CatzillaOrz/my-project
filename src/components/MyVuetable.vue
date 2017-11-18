@@ -1,10 +1,9 @@
 <template>
   <div class="ui container">
-    <div class="vuetable-pagination ui basic segment grid">
-      <vuetable-pagination-info ref="paginationInfoTop"></vuetable-pagination-info>
-      <vuetable-pagination ref="paginationTop" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
-    </div>
+
+      <filter-bar></filter-bar>
     <vuetable ref="vuetable"
+      :append-params="moreParams"
       :fields="fields" pagination-path="" :muti-sort="true"
       :sort-order="sortOrder"
       @vuetable:cell-clicked="onCellClicked"
@@ -47,9 +46,13 @@ import VuetablePaginationInfo from "vuetable-2/src/components/VuetablePagination
 import Vue from "vue";
 import CustomActions from "./CustomActions";
 import DetailRow from "./DetailRow";
+import FilterBar from "./FilterBar";
+import VueEvents from "vue-events";
 
 Vue.component("custom-actions", CustomActions);
 Vue.component("my-detail-row", DetailRow);
+Vue.component("filter-bar", FilterBar);
+Vue.use(VueEvents);
 
 export default {
   components: {
@@ -66,6 +69,7 @@ export default {
           direction: "asc"
         }
       ],
+      moreParams: {},
       css: {
         ascendingIcon: "glyphicon glyphicon-chevron-up",
         descendingIcon: "glyphicon glyphicon-chevron-down"
@@ -116,6 +120,10 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.$events.$on("filter-set", eventData => this.onFilterSet(eventData));
+    this.$events.$on("filter-reset", e => this.onFilterReset());
+  },
   methods: {
     allcap(value) {
       return value.toUpperCase();
@@ -136,9 +144,6 @@ export default {
       return value == null ? "" : moment(value, "YYYY-MM-DD").format(fmt);
     },
     onPaginationData(paginationData) {
-      this.$refs.paginationTop.setPaginationData(paginationData); // <----
-      this.$refs.paginationInfoTop.setPaginationData(paginationData); // <----
-
       this.$refs.pagination.setPaginationData(paginationData);
       this.$refs.paginationInfo.setPaginationData(paginationData);
     },
@@ -148,6 +153,16 @@ export default {
     //...https://github.com/ratiw/vuetable-2-tutorial/wiki/lesson-11#__slotname--v120
     onAction(action, data, index) {
       console.log("slot) action: " + action, data.name, index);
+    },
+    onFilterSet(filterText) {
+      this.moreParams = {
+        filter: filterText
+      };
+      Vue.nextTick(() => this.$refs.vuetable.refresh());
+    },
+    onFilterReset() {
+      this.moreParams = {};
+      Vue.nextTick(() => this.$refs.vuetable.refresh());
     }
   }
 };
