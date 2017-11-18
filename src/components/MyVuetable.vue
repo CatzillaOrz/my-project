@@ -48,6 +48,7 @@ import CustomActions from "./CustomActions";
 import DetailRow from "./DetailRow";
 import FilterBar from "./FilterBar";
 import VueEvents from "vue-events";
+import FieldDefs from './FieldDefs.js';
 
 Vue.component("custom-actions", CustomActions);
 Vue.component("my-detail-row", DetailRow);
@@ -74,50 +75,7 @@ export default {
         ascendingIcon: "glyphicon glyphicon-chevron-up",
         descendingIcon: "glyphicon glyphicon-chevron-down"
       },
-      fields: [
-        {
-          name: "name",
-          sortField: "name"
-        },
-        {
-          name: "email",
-          sortField: "email"
-        },
-        {
-          name: "age",
-          sortField: "birthdate", // <----
-          dataClass: "center aligned"
-        },
-        {
-          name: "birthdate",
-          titleClass: "center aligned",
-          dataClass: "center aligned",
-          callback: "formatDate|DD-MM-YYYY"
-        },
-        {
-          name: "nickname",
-          callback: "allcap"
-        },
-        {
-          name: "gender",
-          titleClass: "center aligned",
-          dataClass: "center aligned",
-          callback: "genderLabel"
-        },
-        {
-          name: "salary",
-          titleClass: "center aligned",
-          dataClass: "right aligned",
-          callback: "formatNumber"
-        },
-        //.. https://github.com/ratiw/vuetable-2-tutorial/wiki/lesson-11#__componentname
-        {
-          name: "__slot:actions", // <----
-          title: "Actions",
-          titleClass: "center aligned",
-          dataClass: "center aligned"
-        }
-      ]
+      fields: FieldDefs,
     };
   },
   mounted() {
