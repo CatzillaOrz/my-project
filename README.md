@@ -46,4 +46,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 自定义了VS code push 快捷键 command + shift + k
 
-锁定分支
+锁定分支 开启 `develop`
