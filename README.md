@@ -5,6 +5,16 @@
 
 `That's really emmm...`
 
+截止 ab30eb55785641024a3b8ec5a086378e2fba6ecb 最后一次 `commit` 已经完成了vuetable组件的UI及功能的实现。此版本将锁定在`master`。
+
+后续的功能组件开发，将以此为demo，进行代码的迭代，并形成多个分支。
+
+主分支默认为设置为 `develop`，此后，所有可用的功能将 `整合` 到主分支。
+
+其他分支 `feature`，将作为组件和功能的独立的 `tutorial` or `demo` 同时存在。
+
+Enjoy!
+
 ## Build Setup
 
 ``` bash
