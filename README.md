@@ -44,4 +44,6 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## modify logs
 
-自定义了VS code push 快捷键 command + shit + k
+自定义了VS code push 快捷键 command + shift + k
+
+锁定分支
