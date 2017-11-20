@@ -30,40 +30,44 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import FieldDefs from './components/FieldDefs.js'
-import MyVuetable from './components/MyVuetable'
-import DetailRow from './components/DetailRow'
-Vue.component('my-detail-row', DetailRow)
+import Vue from "vue";
+import FieldDefs from "./components/FieldDefs.js";
+import MyVuetable from "./components/MyVuetable";
+import DetailRow from "./components/DetailRow";
+import store from "./store/store";
+
+Vue.component("my-detail-row", DetailRow);
+
 export default {
-  name: 'app',
+  name: "app",
+  store,
   components: {
     MyVuetable
   },
-  data () {
+  data() {
     return {
       fields: FieldDefs,
       sortOrder: [
         {
-          field: 'email',
-          sortField: 'email',
-          direction: 'asc'
+          field: "email",
+          sortField: "email",
+          direction: "asc"
         }
       ],
       moreParams: {}
-    }
+    };
   },
   methods: {
-    onAction (action, data, index) {
-      console.log('slot action: ' + action, data.name, index)
-    },
+    onAction(action, data, index) {
+      console.log("slot action: " + action, data.name, index);
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
