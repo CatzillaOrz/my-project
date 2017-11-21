@@ -26,6 +26,9 @@ export default new Vuex.Store({
     REMOVE_TODO (state, todo) {
       todo.completed = !todo.completed
     },
+    COMPLETE_TODO (state, todo) {
+      todo.completed = !todo.completed
+    },
     CLEAR_TODO (state) {
       state.newTodo = ''
     }
@@ -60,12 +63,15 @@ export default new Vuex.Store({
       commit
     }) {
       commit('CLEAR_TODO')
-    },
-    getters: {
-      newTodo: state => state.newTodo,
-      todos: state => state.todos.filter((todo) => {
-        return !todo.completed
-      })
     }
+  },
+  getters: {
+    newTodo: state => state.newTodo,
+    todos: state => state.todos.filter((todo) => {
+      return !todo.completed
+    }),
+    completedTodos: state => state.todos.filter((todo) => {
+      return todo.completed
+    })
   }
 })

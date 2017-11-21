@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <CompletedTodos></CompletedTodos>
+    <GetTodo></GetTodo>
+    <CurrentTodos></CurrentTodos>
     <img src="./assets/logo.png">
 
     <my-vuetable
@@ -17,7 +20,7 @@
           </button>
           <button class="ui basic button"
             @click="onAction('edit-item', props.rowData, props.rowIndex)">
-            <i class="edit icon"></i>
+            <i class = "edit icon"></i>
           </button>
           <button class="ui basic button"
             @click="onAction('delete-item', props.rowData, props.rowIndex)">
@@ -35,7 +38,9 @@ import FieldDefs from "./components/FieldDefs.js";
 import MyVuetable from "./components/MyVuetable";
 import DetailRow from "./components/DetailRow";
 import store from "./store/store";
-import GetTodo  from './components/GetTodo'
+import GetTodo from "./components/GetTodo";
+import CurrentTodos from "./components/CurrentTodos";
+import CompletedTodos from "./components/CompletedTodos";
 
 Vue.component("my-detail-row", DetailRow);
 
@@ -44,7 +49,9 @@ export default {
   store,
   components: {
     MyVuetable,
-    GetTodo
+    GetTodo,
+    CurrentTodos,
+    CompletedTodos
   },
   data() {
     return {
@@ -63,7 +70,8 @@ export default {
     onAction(action, data, index) {
       console.log("slot action: " + action, data.name, index);
     }
-  }
+  },
+  render: h => h(App)
 };
 </script>
 
