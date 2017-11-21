@@ -35,6 +35,7 @@ import FieldDefs from "./components/FieldDefs.js";
 import MyVuetable from "./components/MyVuetable";
 import DetailRow from "./components/DetailRow";
 import store from "./store/store";
+import GetTodo  from './components/GetTodo'
 
 Vue.component("my-detail-row", DetailRow);
 
@@ -42,7 +43,8 @@ export default {
   name: "app",
   store,
   components: {
-    MyVuetable
+    MyVuetable,
+    GetTodo
   },
   data() {
     return {

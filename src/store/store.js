@@ -60,6 +60,12 @@ export default new Vuex.Store({
       commit
     }) {
       commit('CLEAR_TODO')
+    },
+    getters: {
+      newTodo: state => state.newTodo,
+      todos: state => state.todos.filter((todo) => {
+        return !todo.completed
+      })
     }
   }
 })
