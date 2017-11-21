@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <CompletedTodos></CompletedTodos>
+    <GetTodo></GetTodo>
+    <CurrentTodos></CurrentTodos>
     <img src="./assets/logo.png">
 
     <my-vuetable
@@ -17,7 +20,7 @@
           </button>
           <button class="ui basic button"
             @click="onAction('edit-item', props.rowData, props.rowIndex)">
-            <i class="edit icon"></i>
+            <i class = "edit icon"></i>
           </button>
           <button class="ui basic button"
             @click="onAction('delete-item', props.rowData, props.rowIndex)">
@@ -30,40 +33,51 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import FieldDefs from './components/FieldDefs.js'
-import MyVuetable from './components/MyVuetable'
-import DetailRow from './components/DetailRow'
-Vue.component('my-detail-row', DetailRow)
+import Vue from "vue";
+import FieldDefs from "./components/FieldDefs.js";
+import MyVuetable from "./components/MyVuetable";
+import DetailRow from "./components/DetailRow";
+import store from "./store/store";
+import GetTodo from "./components/GetTodo";
+import CurrentTodos from "./components/CurrentTodos";
+import CompletedTodos from "./components/CompletedTodos";
+
+Vue.component("my-detail-row", DetailRow);
+
 export default {
-  name: 'app',
+  name: "app",
+  store,
   components: {
-    MyVuetable
+    MyVuetable,
+    GetTodo,
+    CurrentTodos,
+    CompletedTodos
   },
-  data () {
+  data() {
     return {
       fields: FieldDefs,
       sortOrder: [
         {
-          field: 'email',
-          sortField: 'email',
-          direction: 'asc'
+          field: "email",
+          sortField: "email",
+          direction: "asc"
         }
       ],
       moreParams: {}
-    }
+    };
   },
   methods: {
-    onAction (action, data, index) {
-      console.log('slot action: ' + action, data.name, index)
-    },
-  }
-}
+    onAction(action, data, index) {
+      console.log("slot action: " + action, data.name, index);
+    }
+  },
+  render: h => h(App)
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

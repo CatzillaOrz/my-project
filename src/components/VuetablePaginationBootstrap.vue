@@ -7,12 +7,12 @@
     </li>
 
     <template v-if="notEnoughPages">
-      <li v-for="n in totalPage" :class="{'active': isCurrentPage(n)}">
+      <li v-for="(n, index) in totalPage" :key="index" :class="{'active': isCurrentPage(n)}">
         <a @click.prevent="loadPage(n)" v-html="n"></a>
       </li>
     </template>
     <template v-else>
-      <li v-for="n in windowSize" :class="{'active': isCurrentPage(windowStart+n-1)}">
+      <li v-for="(n, index) in windowSize" :key="index" :class="{'active': isCurrentPage(windowStart+n-1)}">
         <a @click.prevent="loadPage(windowStart+n-1)" v-html="windowStart+n-1"></a>
       </li>
     </template>
