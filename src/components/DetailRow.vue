@@ -24,20 +24,20 @@
   </template>
 
   <script>
-  export default {
-    props: {
-      rowData: {
-        type: Object,
-        required: true
-      },
-      rowIndex: {
-        type: Number
-      }
+export default {
+  props: {
+    rowData: {
+      type: Object,
+      required: true
     },
-    methods: {
-      onClick (event) {
-        console.log('my-detail-row: on-click', event.target)
-      }
-    },
+    rowIndex: {
+      type: Number
+    }
+  },
+  methods: {
+    onClick(event) {
+      console.log("my-detail-row: on-click", event.target);
+    }
   }
-  </script>
+};
+</script>

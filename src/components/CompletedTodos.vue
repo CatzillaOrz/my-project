@@ -13,16 +13,16 @@
 </template>
 
 <script>
-    export default{
-        methods: {
-            remove(todo){
-                this.$store.dispatch('removeTodo', todo)
-            }
-        },
-        computed: {
-            completed(){
-                return this.$store.getters.completedTodos
-            }
-        }
+export default {
+  methods: {
+    remove(todo) {
+      this.$store.dispatch("removeTodo", todo);
     }
+  },
+  computed: {
+    completed() {
+      return this.$store.getters.completedTodos;
+    }
+  }
+};
 </script>
