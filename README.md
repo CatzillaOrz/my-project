@@ -15,6 +15,11 @@
 
 Enjoy!
 
+## 使用的组件
+
+> data table simplify! -- datatable component for Vue 2.x : [Github](https://github.com/ratiw/vuetable-2)
+> vuex -> todo list demo : [Github](https://www.ctolib.com/topics-122467.html)
+
 ## Build Setup
 
 ``` bash
