@@ -33,19 +33,19 @@
 </template>
 
 <script>
-import Vue from "vue";
-import FieldDefs from "./components/FieldDefs.js";
-import MyVuetable from "./components/MyVuetable";
-import DetailRow from "./components/DetailRow";
-import store from "./store/store";
-import GetTodo from "./components/GetTodo";
-import CurrentTodos from "./components/CurrentTodos";
-import CompletedTodos from "./components/CompletedTodos";
+import Vue from 'vue'
+import FieldDefs from './components/FieldDefs.js'
+import MyVuetable from './components/MyVuetable'
+import DetailRow from './components/DetailRow'
+import store from './store/store'
+import GetTodo from './components/GetTodo'
+import CurrentTodos from './components/CurrentTodos'
+import CompletedTodos from './components/CompletedTodos'
 
-Vue.component("my-detail-row", DetailRow);
+Vue.component('my-detail-row', DetailRow)
 
 export default {
-  name: "app",
+  name: 'app',
   store,
   components: {
     MyVuetable,
@@ -53,26 +53,26 @@ export default {
     CurrentTodos,
     CompletedTodos
   },
-  data() {
+  data () {
     return {
       fields: FieldDefs,
       sortOrder: [
         {
-          field: "email",
-          sortField: "email",
-          direction: "asc"
+          field: 'email',
+          sortField: 'email',
+          direction: 'asc'
         }
       ],
       moreParams: {}
-    };
+    }
   },
   methods: {
-    onAction(action, data, index) {
-      console.log("slot action: " + action, data.name, index);
+    onAction (action, data, index) {
+      console.log('slot action: ' + action, data.name, index)
     }
   },
   render: h => h(App)
-};
+}
 </script>
 
 <style lang="scss">

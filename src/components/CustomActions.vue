@@ -18,11 +18,11 @@ export default {
     }
   },
   methods: {
-    itemAction(action, data, index) {
-      console.log("custom-actions: " + action, data.name, index);
+    itemAction (action, data, index) {
+      console.log('custom-actions: ' + action, data.name, index)
     }
   }
-};
+}
 </script>
 
   <style>

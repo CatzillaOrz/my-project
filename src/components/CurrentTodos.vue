@@ -23,22 +23,22 @@
 <script>
 export default {
   methods: {
-    edit(todo) {
-      this.$store.dispatch("editTodo", todo);
+    edit (todo) {
+      this.$store.dispatch('editTodo', todo)
     },
-    complete(todo) {
-      this.$store.dispatch("completeTodo", todo);
+    complete (todo) {
+      this.$store.dispatch('completeTodo', todo)
     },
-    remove(todo) {
-      this.$store.dispatch("removeTodo", todo);
+    remove (todo) {
+      this.$store.dispatch('removeTodo', todo)
     }
   },
   computed: {
-    todos() {
-      return this.$store.getters.todos;
+    todos () {
+      return this.$store.getters.todos
     }
   }
-};
+}
 </script>
 
 <style>

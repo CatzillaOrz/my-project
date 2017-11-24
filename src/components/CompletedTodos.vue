@@ -15,14 +15,14 @@
 <script>
 export default {
   methods: {
-    remove(todo) {
-      this.$store.dispatch("removeTodo", todo);
+    remove (todo) {
+      this.$store.dispatch('removeTodo', todo)
     }
   },
   computed: {
-    completed() {
-      return this.$store.getters.completedTodos;
+    completed () {
+      return this.$store.getters.completedTodos
     }
   }
-};
+}
 </script>
