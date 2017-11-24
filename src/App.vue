@@ -71,6 +71,8 @@ export default {
       console.log('slot action: ' + action, data.name, index)
     }
   },
+  /*global App:true*/
+  /*eslint no-undef: "error"*/
   render: h => h(App)
 }
 </script>

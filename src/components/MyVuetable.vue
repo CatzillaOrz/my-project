@@ -4,7 +4,7 @@ import moment from 'moment'
 import Vue from 'vue'
 import VueEvents from 'vue-events'
 import Vuetable from 'vuetable-2/src/components/Vuetable'
-import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
+// import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
 import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
 import CustomActions from './CustomActions'
 import FilterBar from './FilterBar'
@@ -88,7 +88,7 @@ export default {
       })
     },
     renderPagination (h) {
-      return h('div', { class: { 'vuetable-pagination': true } }, [
+      return h('div', { class: { 'vuetable-pagination': true }}, [
         h('vuetable-pagination-info', {
           ref: 'paginationInfo',
           props: { css: this.css.paginationInfo }
