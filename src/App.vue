@@ -4,7 +4,9 @@
     <GetTodo></GetTodo>
     <CurrentTodos></CurrentTodos>
     <img src="./assets/logo.png">
-
+    <hr>
+    <PDF-Player></PDF-Player>
+    <hr>
     <my-vuetable
       api-url="https://vuetable.ratiw.net/api/users"
       :fields="fields"
@@ -41,6 +43,7 @@ import store from './store/store'
 import GetTodo from './components/GetTodo'
 import CurrentTodos from './components/CurrentTodos'
 import CompletedTodos from './components/CompletedTodos'
+import PDFPlayer from './components/PDFPlayer'
 
 Vue.component('my-detail-row', DetailRow)
 
@@ -51,7 +54,8 @@ export default {
     MyVuetable,
     GetTodo,
     CurrentTodos,
-    CompletedTodos
+    CompletedTodos,
+    PDFPlayer
   },
   data () {
     return {

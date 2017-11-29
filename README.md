@@ -19,6 +19,7 @@ Enjoy!
 
 > data table simplify! -- datatable component for Vue 2.x : [Github](https://github.com/ratiw/vuetable-2)
 > vuex -> todo list demo : [Github](https://www.ctolib.com/topics-122467.html)
+> vue-pdf -> pdf vue player [Github](https://github.com/FranckFreiburger/vue-pdf)
 
 ## Build Setup
 
