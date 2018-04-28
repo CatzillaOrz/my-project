@@ -4,7 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -16,9 +16,9 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath :
+      config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -29,22 +29,75 @@ module.exports = {
   },
   module: {
     rules: [
-      ...(config.dev.useEslint? [
-      //   {
-      //   test: /\.(js|vue)$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre',
-      //   include: [resolve('src'), resolve('test')],
-      //   options: {
-      //     formatter: require('eslint-friendly-formatter'),
-      //     emitWarning: !config.dev.showEslintErrorsInOverlay
-      //   }
-      // }
-    ] : []),
+      ...(config.dev.useEslint ? [
+          {
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          enforce: 'pre',
+          include: [resolve('src'), resolve('test')],
+          options: {
+            formatter: require('eslint-friendly-formatter'),
+            emitWarning: !config.dev.showEslintErrorsInOverlay
+          }
+        },
+
+        // Apply loader
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'postcss-loader',
+            'sass-loader',
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                // Provide path to the file with resources
+                resources: '../src/style/global.scss',
+
+                // Or array of paths
+                // resources: ['./path/to/vars.scss', './path/to/mixins.scss']
+
+              },
+            },
+          ],
+        },
+      ] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: {
+          loaders: {
+            sass: [
+              'vue-style-loader',
+              'css-loader',
+              // postcss-loader非必须
+              'postcss-loader',
+              'sass-loader?indentedSyntax=1',
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  // 需更改为项目中实际scss文件路径
+                  resources: path.resolve(__dirname, '../src/style/global.scss'),
+                },
+              },
+            ],
+            scss: [
+              'vue-style-loader',
+              'css-loader',
+              // postcss-loader非必须
+              'postcss-loader',
+              'sass-loader',
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  // 需更改为项目中实际scss文件路径
+                  resources: path.resolve(__dirname, '../src/style/global.scss'),
+                },
+              },
+            ],
+          },
+        }
       },
       {
         test: /\.js$/,

@@ -13,19 +13,19 @@
 
   <script>
 export default {
-  data() {
+  data () {
     return {
-      filterText: ""
-    };
+      filterText: ''
+    }
   },
   methods: {
-    doFilter() {
-      this.$events.fire("filter-set", this.filterText);
+    doFilter () {
+      this.$events.fire('filter-set', this.filterText)
     },
-    resetFilter() {
-      this.filterText = ""; // clear the text in text input
-      this.$events.fire("filter-reset");
+    resetFilter () {
+      this.filterText = '' // clear the text in text input
+      this.$events.fire('filter-reset')
     }
   }
-};
+}
 </script>

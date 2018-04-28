@@ -4,7 +4,9 @@
     <GetTodo></GetTodo>
     <CurrentTodos></CurrentTodos>
     <img src="./assets/logo.png">
-
+    <hr>
+    <PDF-Player></PDF-Player>
+    <hr>
     <my-vuetable
       api-url="https://vuetable.ratiw.net/api/users"
       :fields="fields"
@@ -33,55 +35,59 @@
 </template>
 
 <script>
-import Vue from "vue";
-import FieldDefs from "./components/FieldDefs.js";
-import MyVuetable from "./components/MyVuetable";
-import DetailRow from "./components/DetailRow";
-import store from "./store/store";
-import GetTodo from "./components/GetTodo";
-import CurrentTodos from "./components/CurrentTodos";
-import CompletedTodos from "./components/CompletedTodos";
+import Vue from 'vue'
+import FieldDefs from './components/FieldDefs.js'
+import MyVuetable from './components/MyVuetable'
+import DetailRow from './components/DetailRow'
+import store from './store/store'
+import GetTodo from './components/GetTodo'
+import CurrentTodos from './components/CurrentTodos'
+import CompletedTodos from './components/CompletedTodos'
+import PDFPlayer from './components/PDFPlayer'
 
-Vue.component("my-detail-row", DetailRow);
+Vue.component('my-detail-row', DetailRow)
 
 export default {
-  name: "app",
+  name: 'app',
   store,
   components: {
     MyVuetable,
     GetTodo,
     CurrentTodos,
-    CompletedTodos
+    CompletedTodos,
+    PDFPlayer
   },
-  data() {
+  data () {
     return {
       fields: FieldDefs,
       sortOrder: [
         {
-          field: "email",
-          sortField: "email",
-          direction: "asc"
+          field: 'email',
+          sortField: 'email',
+          direction: 'asc'
         }
       ],
       moreParams: {}
-    };
-  },
-  methods: {
-    onAction(action, data, index) {
-      console.log("slot action: " + action, data.name, index);
     }
   },
+  methods: {
+    onAction (action, data, index) {
+      console.log('slot action: ' + action, data.name, index)
+    }
+  },
+  /*global App:true*/
+  /*eslint no-undef: "error"*/
   render: h => h(App)
-};
+}
 </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+// #app {
+//   font-family: "Avenir", Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   color: #2c3e50;
+//   margin-top: 60px;
+// }
 </style>

@@ -3,4 +3,5 @@
 /dist/
 /*.js
 /test/unit/coverage/
-src/components
+// eslint-disable-next-line
+/* eslint-disable */
